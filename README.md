@@ -211,16 +211,41 @@ Example Response:
           "creationDate": "2022-01-01T12:00:00Z"
           }
        ```
-### Find Orders
-- **Endpoint**: `GET /orders`
-- **Description**: Find orders filtered by status and creation date range.
-  - **Query Parameters**:
-      - `status (optional)`: Order status (string)
-      - `startDate (optional)`: Start date of the creation date range (string, format: ISO 8601)
-      - `endDate (optional)`: End date of the creation date range (string, format: ISO 8601)
-      - Example Request: `GET /orders?status=open&startDate=2022-01-01T00:00:00Z&endDate=2022-12-31T23:59:59Z`
-      - Example Response:
 
+### Find Orders
+
+- **Endpoint**: `GET /orders`
+  - **Description**: Find orders filtered by status and creation date range.
+      - **Query Parameters**:
+          - `status (optional)`: Order status (string)
+          - `startDate (optional)`: Start date of the creation date range (string, format: ISO 8601)
+          - `endDate (optional)`: End date of the creation date range (string, format: ISO 8601)
+          - Example Request: `GET /orders?status=open&startDate=2022-01-01T00:00:00Z&endDate=2022-12-31T23:59:59Z`
+          - Example Response:
+          - ```json
+            [
+            {
+            "id": 123,
+            "status": "open",
+            "quantity": 10,
+            "currency": {
+            "name": "BTC",
+            "currentUsdPrice": 40000
+            },
+            "creationDate": "2022-01-01T12:00:00Z"
+            },
+            {
+            "id": 456,
+            "status": "filled",
+            "quantity": 5,
+            "currency": {
+            "name": "ETH",
+            "currentUsdPrice": 2000
+            },
+            "creationDate": "2022-02-01T10:00:00Z"
+            }
+            ]
+        
 ### List Orders by Status and Date Range
 - **Endpoint**: `GET /orders`
 - **Description**: Find orders filtered by status and creation date range.
