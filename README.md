@@ -9,13 +9,16 @@ This API provides endpoints for managing orders and performing calculations.
 ## Getting Started
 
 1. Clone the repository:
-   git clone <repository_url>
+   ```git clone <repository_url>```
 2. Build the project:
-   mvn clean install
+   ```mvn clean install```
 3. Run the application:
 
 The API will be available at `http://localhost:8080`.
 
+## Test case
+ To run the unit tests, use the following command:
+ ```mvn test```
 ## API Endpoints
 
 **Your API Collection.postman_collection.json:**
@@ -23,7 +26,6 @@ The API will be available at `http://localhost:8080`.
 ```json
 {
   "info": {
-    "_postman_id": "YOUR_POSTMAN_COLLECTION_ID",
     "name": "Your API Collection",
     "description": "Collection of APIs for managing orders",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -90,15 +92,15 @@ The API will be available at `http://localhost:8080`.
           "query": [
             {
               "key": "status",
-              "value": "open"
+              "value": "OPEN"
             },
             {
               "key": "startDate",
-              "value": "2022-01-01T00:00:00Z"
+              "value": "2023-01-01T00:00:00Z"
             },
             {
               "key": "endDate",
-              "value": "2022-12-31T23:59:59Z"
+              "value": "2023-12-31T23:59:59Z"
             }
           ]
         }
@@ -220,7 +222,38 @@ Example Response:
       - Example Response:
 
 ### List Orders by Status and Date Range
+- **Endpoint**: `GET /orders`
+- **Description**: Find orders filtered by status and creation date range.
+    - **Query Parameters**:
+      - `status (optional)`: Order status (string)
+      - `startDate (optional)`: Start date of the creation date range (string, format: ISO 8601)
+      -  `endDate (optional)`: End date of the creation date range (string, format: ISO 8601)
+      - Example Request: `GET /orders?status=open&startDate=2022-01-01T00:00:00Z&endDate=2022-12-31T23:59:59Z`
+      - Example Response:
+        - ```json
+          [{
+          "id": 123,
+          "status": "open",
+          "quantity": 10,
+          "currency": {
+          "name": "BTC",
+          "currentUsdPrice": 40000
+          },
+          "creationDate": "2022-01-01T12:00:00Z"
+          },
+          {
+          "id": 456, 
+          "status": "filled",
+          "quantity": 5,
+          "currency": {
+          "name": "ETH",
+          "currentUsdPrice": 2000
+          },
+          "creationDate": "2022-02-01T10:00:00Z"
+          }
+          ]
+    ```
 
+### Calculation Functions
 
-
-   
+I could make apis for it , but i enough wit test cases 
