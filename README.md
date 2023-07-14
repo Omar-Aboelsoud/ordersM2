@@ -188,7 +188,7 @@ Example Response:
 ```json
 {
   "id": 123,
-  "creationDate": "2022-01-01T12:00:00Z"
+  "creationDate": "2023-01-01T12:00:00Z"
 }
 ```
 
@@ -256,28 +256,39 @@ Example Response:
       - Example Request: `GET /orders?status=open&startDate=2022-01-01T00:00:00Z&endDate=2022-12-31T23:59:59Z`
       - Example Response:
         - ```json
-          [{
-          "id": 123,
-          "status": "open",
-          "quantity": 10,
+          { "result": [
+          {
+          "status": "OPEN",
+          "quantity": 10.00,
           "currency": {
           "name": "BTC",
           "currentUsdPrice": 40000
-          },
-          "creationDate": "2022-01-01T12:00:00Z"
+          }
           },
           {
-          "id": 456, 
-          "status": "filled",
-          "quantity": 5,
+          "status": "OPEN",
+          "quantity": 10.00,
           "currency": {
-          "name": "ETH",
-          "currentUsdPrice": 2000
-          },
-          "creationDate": "2022-02-01T10:00:00Z"
+          "name": "BTC",
+          "currentUsdPrice": 40000
           }
-          ]
-    ```
+          },
+          {
+          "status": "OPEN",
+          "quantity": 10.00, 
+          "currency": {
+          "name": "BTC",
+          "currentUsdPrice": 40000
+          }
+          }
+          ],
+          "metadata": {
+          "totalPages": 1,
+          "totalItems": 3
+          }
+          }
+
+        ```
 
 ### Calculation Functions
 
