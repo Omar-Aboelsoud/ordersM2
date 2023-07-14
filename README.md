@@ -290,6 +290,9 @@ Example Response:
 
         ```
 
+## Update Order Status : 
+- this a thing i was thinking of adding . makes sense to update the order status to CANCELLED or FILLED
+
 ### Calculation Functions
 
 the requirement was not clear if adding and removing fees will be to the orders or not as 
