@@ -3,9 +3,6 @@ package com.example.orderingm2;
 import com.example.orderingm2.services.CalculationService;
 import com.example.orderingm2.services.CalculationServiceImpl;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 

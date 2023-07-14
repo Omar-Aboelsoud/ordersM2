@@ -4,10 +4,12 @@ package com.example.orderingm2.common.exception;
 import com.example.orderingm2.dtos.ErrorDto;
 import com.savoirtech.logging.slf4j.json.LoggerFactory;
 import com.savoirtech.logging.slf4j.json.logger.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 

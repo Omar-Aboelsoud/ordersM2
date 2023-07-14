@@ -1,7 +1,10 @@
 package com.example.orderingm2.common.exception;
 
+import java.io.Serial;
+
 public class LogicalException extends BaseException {
 
+    @Serial
     private static final long serialVersionUID = -6527073160488586546L;
 
     public LogicalException(ServerError err) {
@@ -12,9 +15,6 @@ public class LogicalException extends BaseException {
         super(err, clientMsg, null);
     }
 
-    public LogicalException(ServerError err, String clientMsg, String developer) {
-        super(err, clientMsg, developer);
-    }
 
     public LogicalException apply(Object... params) {
         this.params = params;

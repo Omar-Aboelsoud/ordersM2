@@ -3,11 +3,13 @@ package com.example.orderingm2.common.exception;
 import com.example.orderingm2.dtos.ErrorDto;
 import lombok.Data;
 
+import java.io.Serial;
 import java.util.UUID;
 
 @Data
 public abstract class BaseException extends RuntimeException {
 
+    @Serial
     private static final long serialVersionUID = 8606514442336986896L;
     private final ServerError error;
 
@@ -22,13 +24,7 @@ public abstract class BaseException extends RuntimeException {
 
     protected Object[] params;
 
-    public BaseException(ServerError err) {
-        this(err, null);
-    }
 
-    public BaseException(ServerError err, String clientMsg) {
-        this(err, clientMsg, null);
-    }
 
     public BaseException(ServerError err, String clientMsg, String developerMessage) {
         super(err.getMessage());
